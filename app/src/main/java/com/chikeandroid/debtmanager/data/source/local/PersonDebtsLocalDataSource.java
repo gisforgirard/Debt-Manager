@@ -357,7 +357,8 @@ public class PersonDebtsLocalDataSource implements PersonDebtsDataSource {
                 .append(" = ").append(PersonsEntry.TABLE_NAME).append(dot).append(PersonsEntry.COLUMN_PHONE_NO)
                 .append(" INNER JOIN ").append(PaymentsEntry.TABLE_NAME)
                 .append(" ON ").append(DebtsEntry.TABLE_NAME).append(dot).append(DebtsEntry.COLUMN_ENTRY_ID)
-                .append(" = ").append(PaymentsEntry.TABLE_NAME).append(dot).append(PaymentsEntry.COLUMN_DEBT_ID);
+                .append(" = ").append(PaymentsEntry.TABLE_NAME).append(dot).append(PaymentsEntry.COLUMN_DEBT_ID)
+                .append(" ORDER BY ").append(alias).append(DebtsEntry.ALIAS_DATE_ENTERED).append(" ASC");
 
         if (!"no".equals(whereValue)) {
             sqlStringBuilder.append(DebtsDbHelper.WHERE).append(whereValue);
